@@ -15,5 +15,4 @@ class SwaggerDocumentationTest extends TestCase
         $this->get('/')
             ->assertStatus(200);
     }
-
 }
