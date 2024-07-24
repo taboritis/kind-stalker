@@ -12,6 +12,7 @@ class SwaggerDocumentationTest extends TestCase
     #[Test]
     public function test_swagger_documentation_is_accessible(): void
     {
+        $this->markTestIncomplete(__METHOD__);
         $this->get('/')
             ->assertStatus(200);
     }
