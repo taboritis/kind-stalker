@@ -54,6 +54,6 @@ class UploadControllerTest extends TestCase
         $this->expectException(ValidationException::class);
 
         $this->post('/upload', ['lastImage' => 'base64:dedaedead'])
-            ->assertStatus(422);
+                ->assertStatus(422);
     }
 }
