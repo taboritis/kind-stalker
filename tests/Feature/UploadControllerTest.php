@@ -23,7 +23,7 @@ class UploadControllerTest extends TestCase
     public function it_returns_201(): void
     {
         $this->withHeaders([
-            'Authorization' => 'Basic ' . base64_encode('adrian:lubie-placki'),
+            'Authorization' => 'Basic ' . base64_encode('admin:lubie-placki'),
         ]);
 
         $this->post('/upload', ['lastImage' => UploadedFile::fake()->image('image.jpg')])
@@ -34,7 +34,7 @@ class UploadControllerTest extends TestCase
     public function it_returns_422_if_payload_is_not_given(): void
     {
         $this->withHeaders([
-            'Authorization' => 'Basic ' . base64_encode('adrian:lubie-placki'),
+            'Authorization' => 'Basic ' . base64_encode('admin:lubie-placki'),
         ]);
         $this->withoutExceptionHandling();
         $this->expectException(ValidationException::class);
@@ -47,7 +47,7 @@ class UploadControllerTest extends TestCase
     public function it_returns_422_if_payload_is_incorrect(): void
     {
         $this->withHeaders([
-            'Authorization' => 'Basic ' . base64_encode('adrian:lubie-placki'),
+            'Authorization' => 'Basic ' . base64_encode('admin:lubie-placki'),
         ]);
 
         $this->withoutExceptionHandling();
