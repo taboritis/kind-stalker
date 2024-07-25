@@ -14,7 +14,7 @@ class DownloadFileTest extends TestCase
     public function it_can_download_last_file(): void
     {
         $this->withHeaders([
-            'Authorization' => 'Basic ' . base64_encode('adrian:lubie-placki'),
+            'Authorization' => 'Basic ' . base64_encode('admin:lubie-placki'),
         ]);
 
         File::copy(
@@ -42,7 +42,7 @@ class DownloadFileTest extends TestCase
     public function it_returns_404_as_user_is_unauthorized(): void
     {
         $this->withHeaders([
-            'Authorization' => 'Basic ' . base64_encode('adrian:wrong-password'),
+            'Authorization' => 'Basic ' . base64_encode('admin:wrong-password'),
         ]);
 
         File::copy(

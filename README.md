@@ -1,5 +1,9 @@
 ## Installation and configuration
 
+### 0. Documentation
+[OpenAPI Specification](https://github.com/taboritis/kind-stalker/blob/main/storage/api-docs/openapi.yaml)
+
+
 ### 1. Clone the repository
 
 ```bash
