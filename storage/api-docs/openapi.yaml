@@ -22,12 +22,24 @@ paths:
               schema:
                 type: string
                 format: binary
+        '401':
+          $ref: '#/components/responses/Unauthenticated'
+        '403':
+          $ref: '#/components/responses/Unauthorized'
   /upload:
     post:
       security:
         - basicAuth: [ ]
       summary: Download file
       description: Download file
+      parameters:
+        - name: Accept
+          in: header
+          required: false
+          schema:
+            type: string
+            default: application/json
+          description: The response format
       requestBody:
         required: true
         content:
@@ -49,9 +61,40 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: File uploaded successfully
+                    default: File uploaded successfully
+        '401':
+          $ref: '#/components/responses/Unauthenticated'
+        '403':
+          $ref: '#/components/responses/Unauthorized'
 components:
   securitySchemes:
     basicAuth:
       type: http
       scheme: basic
+  schemas:
+    SimpleMessage:
+      type: object
+      properties:
+        message:
+          type: string
+  responses:
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                default: Unauthorized
+    Unauthenticated:
+      description: Unauthenticated
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                default: Unauthenticated
