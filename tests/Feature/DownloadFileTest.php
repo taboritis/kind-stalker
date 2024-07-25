@@ -12,7 +12,6 @@ class DownloadFileTest extends TestCase
     #[Test]
     public function it_can_download_last_file(): void
     {
-        $this->markTestIncomplete(__METHOD__);
         $this->get('/images/lastImage/download')
             ->assertStatus(200);
     }
