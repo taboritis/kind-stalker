@@ -12,10 +12,12 @@ class UploadController extends Controller
     {
     }
 
-    public function __invoke(UploadRequest $request): mixed
+    public function __invoke(UploadRequest $request): JsonResponse
     {
         $this->uploadService->upload($request);
 
-        return new JsonResponse([], 201);
+        return new JsonResponse([
+            'message' => 'Image uploaded successfully',
+        ], 201);
     }
 }
