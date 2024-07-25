@@ -22,7 +22,7 @@ class DownloadFileTest extends TestCase
             storage_path('images/lastImage.jpg')
         );
 
-        $this->get('/images/lastImage/download')
+        $this->get('/download')
             ->assertStatus(200);
     }
 
@@ -34,7 +34,7 @@ class DownloadFileTest extends TestCase
             storage_path('images/lastImage.jpg')
         );
 
-        $this->get('/images/lastImage/download')
+        $this->get('/download')
             ->assertStatus(401);
     }
 
@@ -50,7 +50,7 @@ class DownloadFileTest extends TestCase
             storage_path('images/lastImage.jpg')
         );
 
-        $this->get('/images/lastImage/download')
+        $this->get('/download')
             ->assertStatus(403);
     }
 }

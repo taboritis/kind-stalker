@@ -1,0 +1,57 @@
+openapi: 3.0.0
+info:
+  title: Kind stalker API
+  version: 1.0.0
+  contact:
+    name: API Support
+servers:
+  - url: http://localhost
+  - url: http://kind-stalker.test
+paths:
+  /download:
+    get:
+      security:
+        - basicAuth: [ ]
+      summary: Download file
+      description: Download file
+      responses:
+        '200':
+          description: File downloaded
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+  /upload:
+    post:
+      security:
+        - basicAuth: [ ]
+      summary: Download file
+      description: Download file
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                lastImage:
+                  type: string
+                  format: binary
+                  description: The image file to upload.
+      responses:
+        '201':
+          description: File downloaded
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: File uploaded successfully
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
